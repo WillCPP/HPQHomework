@@ -70,17 +70,12 @@ void Heap::Insert(int item) {
 }
 
 void Heap::HeapifyDown(int node) {
-	int leftHeap, rightHeap, temp;
+	int leftHeap, rightHeap;
 	leftHeap = left(node);
 	rightHeap = right(node);
 	if (rightHeap >= heap && leftHeap >= heap) {
 		return;
-	
 	}
-	else { 
-		min = leftHeap;
-	}
-	if (data[node] > data[])
 	
 	
 }
