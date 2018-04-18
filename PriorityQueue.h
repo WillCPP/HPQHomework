@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "node.h"
+#include "Node.h"
 #include "EmptyListException.h"
 using namespace std;
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "node.h"
+#include "Node.h"
 
 //used for reference: http://www.algolist.net/Data_structures/Binary_heap/Insertion
 class Heap

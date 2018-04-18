@@ -183,9 +183,11 @@ int main() {
 		}
 		else if (input == 2)
 		{
+			Heap heap = Heap();
 			input_test = -1;
 			do
 			{
+				int i;
 				cout << endl << "Heap:" << endl;
 				cout << "[1] Insert()" << endl;
 				cout << "[2] Remove()" << endl;
@@ -195,14 +197,29 @@ int main() {
 				if (input_test == 1)
 				{
 					//call Insert
+					cout << "Enter item (integer): " << endl;
+					cin >> i;
+					heap.InsertHeap(i);
+					break;
 				}
 				else if (input_test == 2)
 				{
 					//call Remove
+					
+					if (heap.RemoveHeap() == -1) {
+						cout << "Empty Heap" << endl;
+					}
+					else {
+						cout << "Removed: " << heap.RemoveHeap() << endl;
+					}
+					break;
+					
 				}
 				else if (input_test == 3)
 				{
 					//call PrintHeap
+					heap.DisplayHeap();
+					break;
 				}
 				else if (input_test == 0)
 				{
