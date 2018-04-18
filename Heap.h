@@ -35,9 +35,6 @@ private:
 
 };
 
-Heap::Heap()
-{
-}
 
 Heap::~Heap()
 {
@@ -57,7 +54,7 @@ void Heap::HeapifyUp(int node) {
 	}
 }
 
-void Heap::Insert(int item) {
+void Heap::InsertHeap(int item) {
 	if (heap == array) {
 		cout << "Overflow error." << endl;
 	}
@@ -85,7 +82,7 @@ void Heap::HeapifyDown(int node) {
 	
 	
 }
-void Heap::Remove() {
+void Heap::RemoveHeap() {
 	if (isEmpty()) {
 		cout <<"Heap is empty" << endl;
 	}
@@ -97,7 +94,7 @@ void Heap::Remove() {
 	}
 }
 
-void Heap::Display() {
+void Heap::DisplayHeap() {
 	vector<int>:: iterator loc = heap.begin();
 	cout << "     Heap     " << endl;
 	cout << "==============" << endl;
