@@ -6,6 +6,7 @@
 #include <chrono>
 #include "EmptyListException.h"
 #include "PriorityQueue.h"
+#include "Heap.h"
 using namespace std;
 using namespace std::chrono;
 
