@@ -1,15 +1,16 @@
 #pragma once
 #include <iostream>
 #include "node.h"
+#include "EmptyListException.h"
 using namespace std;
 
 class PriorityQueue
 {
+private:
+	Node *head;
 public:
 	PriorityQueue() { head = nullptr; }
 	~PriorityQueue() {}
-
-	Node* head;
 
 	void Insert(int data, int priority) {
 		Node *ptrNew = new Node(data, priority);
@@ -30,18 +31,22 @@ public:
 		}
 	}
 
-	void Remove() {
+	Node Remove() {
+		Node retVal(-1, -1);
 		Node *ptr = nullptr;
 		if (head == nullptr)
 		{
-			throw;
+			throw EmptyListException();
 		}
 		else
 		{
 			ptr = head;
 			head = head->next;
+			retVal.data = ptr->data;
+			retVal.priority = ptr->priority;
 			delete ptr;
 		}
+		return retVal;
 	}
 
 	void DisplayQueue() {
@@ -50,11 +55,8 @@ public:
 		cout << "==============" << endl;
 		while (ptr != nullptr)
 		{
-			cout << "Data: "<< ptr->data << " Priority: " << ptr->priority;
+			cout << "Data: "<< ptr->data << " Priority: " << ptr->priority << endl;
 			ptr = ptr->next;
 		}
 	}
-
-private:
-
 };

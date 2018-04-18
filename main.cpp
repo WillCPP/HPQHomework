@@ -4,6 +4,8 @@
 #include <random>
 #include <ctime>
 #include <chrono>
+#include "EmptyListException.h"
+#include "PriorityQueue.h"
 using namespace std;
 using namespace std::chrono;
 
@@ -122,17 +124,18 @@ int main() {
 	int input_test = -1;
 	do
 	{
-		cout << "Menu:" << endl;
+		cout << endl << "Menu:" << endl;
 		cout << "[1] Test Priority Queue" << endl;
 		cout << "[2] Test Heap" << endl;
 		cout << "[0] Exit" << endl;
 		cin >> input;
 		if (input == 1)
 		{
+			PriorityQueue pri_queue = PriorityQueue();
 			input_test = -1;
 			do
 			{
-				cout << "Priority Queue:" << endl;
+				cout << endl << "Priority Queue:" << endl;
 				cout << "[1] Insert()" << endl;
 				cout << "[2] Remove()" << endl;
 				cout << "[3] PrintQueue()" << endl;
@@ -141,14 +144,32 @@ int main() {
 				if (input_test == 1)
 				{
 					//call Insert
+					int d = -1;
+					int p = -1;
+					cout << "Enter data (integer): ";
+					cin >> d;
+					cout << "Enter priority (integer): ";
+					cin >> p;
+					pri_queue.Insert(d, p);
 				}
 				else if (input_test == 2)
 				{
-					//call Remove
+					Node n(-1, -1);
+					try
+					{
+						n = pri_queue.Remove();
+						cout << "Node remove" << endl;
+						cout << "Data: " << n.data << " Priority: " << n.priority;
+					}
+					catch (EmptyListException e)
+					{
+						cout << e.Message << endl;
+					}
 				}
 				else if (input_test == 3)
 				{
 					//call PrintQueue
+					pri_queue.DisplayQueue();
 				}
 				else if (input_test == 0)
 				{
@@ -165,7 +186,7 @@ int main() {
 			input_test = -1;
 			do
 			{
-				cout << "Heap:" << endl;
+				cout << endl << "Heap:" << endl;
 				cout << "[1] Insert()" << endl;
 				cout << "[2] Remove()" << endl;
 				cout << "[3] PrintHeap()" << endl;
