@@ -1,21 +1,21 @@
 #pragma once
 #include "node.h"
 
-class PriorityQueue
+class Heap
 {
 public:
-	PriorityQueue();
-	~PriorityQueue();
+	Heap();
+	~Heap();
 
 	Node* head;
 private:
 
 };
 
-PriorityQueue::PriorityQueue()
+Heap::Heap()
 {
 }
 
-PriorityQueue::~PriorityQueue()
+Heap::~Heap()
 {
 }
