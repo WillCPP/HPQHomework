@@ -221,7 +221,9 @@ int main() {
 
 	//menu
 	int input = -1;
-	int input_test = -1;
+	int input_queue = -1;
+	int input_heap = -1;
+
 	do
 	{
 		cout << endl << "Menu:" << endl;
@@ -232,7 +234,7 @@ int main() {
 		if (input == 1)
 		{
 			PriorityQueue pri_queue = PriorityQueue();
-			input_test = -1;
+			input_queue = -1;
 			do
 			{
 				cout << endl << "Priority Queue:" << endl;
@@ -240,8 +242,8 @@ int main() {
 				cout << "[2] Remove()" << endl;
 				cout << "[3] PrintQueue()" << endl;
 				cout << "[0] Exit" << endl;
-				cin >> input_test;
-				if (input_test == 1)
+				cin >> input_queue;
+				if (input_queue == 1)
 				{
 					//call Insert
 					int d = -1;
@@ -252,7 +254,7 @@ int main() {
 					cin >> p;
 					pri_queue.Insert(d, p);
 				}
-				else if (input_test == 2)
+				else if (input_queue == 2)
 				{
 					Node n(-1, -1);
 					try
@@ -266,12 +268,12 @@ int main() {
 						cout << e.Message << endl;
 					}
 				}
-				else if (input_test == 3)
+				else if (input_queue == 3)
 				{
 					//call PrintQueue
 					pri_queue.DisplayQueue();
 				}
-				else if (input_test == 0)
+				else if (input_queue == 0)
 				{
 					exit;
 				}
@@ -279,12 +281,12 @@ int main() {
 				{
 					cout << "Invalid input." << endl;
 				}
-			} while (input_test != 0);
+			} while (input_queue != 0);
 		}
 		else if (input == 2)
 		{
-			Heap heap = Heap();
-			input_test = -1;
+			Heap heap = Heap(100);
+			input_heap = -1;
 			do
 			{
 				int i;
@@ -293,35 +295,31 @@ int main() {
 				cout << "[2] Remove()" << endl;
 				cout << "[3] PrintHeap()" << endl;
 				cout << "[0] Exit" << endl;
-				cin >> input_test;
-				if (input_test == 1)
+				cin >> input_heap;
+				if (input_heap == 1)
 				{
 					//call Insert
 					cout << "Enter item (integer): " << endl;
 					cin >> i;
 					heap.InsertHeap(i);
-					break;
 				}
-				else if (input_test == 2)
+				else if (input_heap == 2)
 				{
 					//call Remove
-					
-					if (heap.RemoveHeap() == -1) {
+					int temp = heap.RemoveHeap();
+					if ( temp == -1) {
 						cout << "Empty Heap" << endl;
 					}
 					else {
-						cout << "Removed: " << heap.RemoveHeap() << endl;
+						cout << "Removed: " << temp << endl;
 					}
-					break;
-					
 				}
-				else if (input_test == 3)
+				else if (input_heap == 3)
 				{
 					//call PrintHeap
 					heap.DisplayHeap();
-					break;
 				}
-				else if (input_test == 0)
+				else if (input_heap == 0)
 				{
 					exit;
 				}
@@ -329,7 +327,7 @@ int main() {
 				{
 					cout << "Invalid input." << endl;
 				}
-			} while (input_test != 0);
+			} while (input_heap != 0);
 		}
 		else if (input != 0)
 		{
