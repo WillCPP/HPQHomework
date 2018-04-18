@@ -66,67 +66,142 @@ int main() {
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Priory));
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Heap));
 
+
+	//***** INSERT STARTS*******
+
 	PriorityQueue priqueue500 = PriorityQueue();
 	PriorityQueue priqueue1000 = PriorityQueue();
 	PriorityQueue priqueue2000 = PriorityQueue();
 	PriorityQueue priqueue5000 = PriorityQueue();
 
+	Heap heap500 = Heap(500);
+	Heap heap1000 = Heap(1000);
+	Heap heap2000 = Heap(2000);
+	Heap heap5000 = Heap(5000);
+	{
+		auto start_time_500_Priory = high_resolution_clock::now();
+		for (int i = 0; i < S_500; i++) {
+			priqueue500.Insert(dataarr_5000[i], arr_500_Priory[i]);//Calls add function 500
+		}
+		auto stop_time_500_Priory = high_resolution_clock::now();
+		auto duration_500_Priory = duration_cast<nanoseconds>(stop_time_500_Priory - start_time_500_Priory);
+		auto start_time_1000_Priory = high_resolution_clock::now();
+		for (int i = 0; i < S_1000; i++) {
+			priqueue1000.Insert(dataarr_5000[i], arr_1000_Priory[i]);//Calls add function 1000
+		}
+		auto stop_time_1000_Priory = high_resolution_clock::now();
+		auto duration_1000_Priory = duration_cast<nanoseconds>(stop_time_1000_Priory - start_time_1000_Priory);
+		auto start_time_2000_Priory = high_resolution_clock::now();
+		for (int i = 0; i < S_2000; i++) {
+			priqueue2000.Insert(dataarr_5000[i], arr_2000_Priory[i]);//Calls add function 2000
+		}
+		auto stop_time_2000_Priory = high_resolution_clock::now();
+		auto duration_2000_Priory = duration_cast<nanoseconds>(stop_time_2000_Priory - start_time_2000_Priory);
+		auto start_time_5000_Priory = high_resolution_clock::now();
+		for (int i = 0; i < S_5000; i++) {
+			priqueue5000.Insert(dataarr_5000[i], arr_5000_Priory[i]);//Calls add function 5000
+		}
+		auto stop_time_5000_Priory = high_resolution_clock::now();
+		auto duration_5000_Priory = duration_cast<nanoseconds>(stop_time_5000_Priory - start_time_5000_Priory);
+
+
+		auto start_time_500_Heap = high_resolution_clock::now();
+		for (int i = 0; i < S_500; i++) {
+			heap500.InsertHeap(arr_500_Heap[i]);//Calls add function 500
+		}
+		auto stop_time_500_Heap = high_resolution_clock::now();
+		auto duration_500_Heap = duration_cast<nanoseconds>(stop_time_500_Heap - start_time_500_Heap);
+		auto start_time_1000_Heap = high_resolution_clock::now();
+		for (int i = 0; i < S_1000; i++) {
+			heap1000.InsertHeap(arr_1000_Heap[i]);//Calls add function 1000
+		}
+		auto stop_time_1000_Heap = high_resolution_clock::now();
+		auto duration_1000_Heap = duration_cast<nanoseconds>(stop_time_1000_Heap - start_time_1000_Heap);
+		auto start_time_2000_Heap = high_resolution_clock::now();
+		for (int i = 0; i < S_2000; i++) {
+			heap2000.InsertHeap(arr_2000_Heap[i]);//Calls add function 2000
+		}
+		auto stop_time_2000_Heap = high_resolution_clock::now();
+		auto duration_2000_Heap = duration_cast<nanoseconds>(stop_time_2000_Heap - start_time_2000_Heap);
+		auto start_time_5000_Heap = high_resolution_clock::now();
+		for (int i = 0; i < S_5000; i++) {
+			heap5000.InsertHeap(arr_5000_Heap[i]);//Calls add function 5000
+		}
+		auto stop_time_5000_Heap = high_resolution_clock::now();
+		auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
+
+		cout << "Priory Queue: Insert" << endl;
+		cout << "===========" << endl;
+		cout << "Number of Items | Execution Time (ns)" << endl;
+		cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Priory.count() << " ns" << endl;
+		cout << setw(16) << "1000" << "|" << setw(15) << right << duration_1000_Priory.count() << " ns" << endl;
+		cout << setw(16) << "2000" << "|" << setw(15) << right << duration_2000_Priory.count() << " ns" << endl;
+		cout << setw(16) << "5000" << "|" << setw(15) << right << duration_5000_Priory.count() << " ns" << endl;
+		cout << endl;
+
+		cout << "Heap: Insert" << endl;
+		cout << "===========" << endl;
+		cout << "Number of Items | Execution Time (ns)" << endl;
+		cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Heap.count() << " ns" << endl;
+		cout << setw(16) << "1000" << "|" << setw(15) << right << duration_1000_Heap.count() << " ns" << endl;
+		cout << setw(16) << "2000" << "|" << setw(15) << right << duration_2000_Heap.count() << " ns" << endl;
+		cout << setw(16) << "5000" << "|" << setw(15) << right << duration_5000_Heap.count() << " ns" << endl;
+		cout << endl;
+	}
+
+	//***** REMOVE STARTS*******
 	auto start_time_500_Priory = high_resolution_clock::now();
 	for (int i = 0; i < S_500; i++) {
-		priqueue500.Insert(dataarr_5000[i], arr_500_Priory[i]);//Calls add function 500
+		priqueue500.Remove();//Calls Remove function 500 
 	}
 	auto stop_time_500_Priory = high_resolution_clock::now();
 	auto duration_500_Priory = duration_cast<nanoseconds>(stop_time_500_Priory - start_time_500_Priory);
 	auto start_time_1000_Priory = high_resolution_clock::now();
 	for (int i = 0; i < S_1000; i++) {
-		priqueue1000.Insert(dataarr_5000[i], arr_1000_Priory[i]);//Calls add function 1000
+		priqueue1000.Remove();//Calls Remove function 1000 
 	}
 	auto stop_time_1000_Priory = high_resolution_clock::now();
 	auto duration_1000_Priory = duration_cast<nanoseconds>(stop_time_1000_Priory - start_time_1000_Priory);
 	auto start_time_2000_Priory = high_resolution_clock::now();
 	for (int i = 0; i < S_2000; i++) {
-		priqueue2000.Insert(dataarr_5000[i], arr_2000_Priory[i]);//Calls add function 2000
+		priqueue2000.Remove();//Calls Remove function 2000 
 	}
 	auto stop_time_2000_Priory = high_resolution_clock::now();
 	auto duration_2000_Priory = duration_cast<nanoseconds>(stop_time_2000_Priory - start_time_2000_Priory);
 	auto start_time_5000_Priory = high_resolution_clock::now();
 	for (int i = 0; i < S_5000; i++) {
-		priqueue5000.Insert(dataarr_5000[i], arr_5000_Priory[i]);//Calls add function 5000
+		priqueue5000.Remove();//Calls Remove function 5000 
 	}
 	auto stop_time_5000_Priory = high_resolution_clock::now();
 	auto duration_5000_Priory = duration_cast<nanoseconds>(stop_time_5000_Priory - start_time_5000_Priory);
 
-	Heap heap500 = Heap(500);
-	Heap heap1000 = Heap(1000);
-	Heap heap2000 = Heap(2000);
-	Heap heap5000 = Heap(5000);
 
 	auto start_time_500_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_500; i++) {
-		heap500.InsertHeap(arr_500_Heap[i]);//Calls add function 500
+		heap500.RemoveHeap();//Calls remove function 500
 	}
 	auto stop_time_500_Heap = high_resolution_clock::now();
 	auto duration_500_Heap = duration_cast<nanoseconds>(stop_time_500_Heap - start_time_500_Heap);
 	auto start_time_1000_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_1000; i++) {
-		heap1000.InsertHeap(arr_1000_Heap[i]);//Calls add function 1000
+		heap1000.RemoveHeap();//Calls remove function 1000
 	}
 	auto stop_time_1000_Heap = high_resolution_clock::now();
 	auto duration_1000_Heap = duration_cast<nanoseconds>(stop_time_1000_Heap - start_time_1000_Heap);
 	auto start_time_2000_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_2000; i++) {
-		heap2000.InsertHeap(arr_2000_Heap[i]);//Calls add function 2000
+		heap2000.RemoveHeap();//Calls remove function 2000
 	}
 	auto stop_time_2000_Heap = high_resolution_clock::now();
 	auto duration_2000_Heap = duration_cast<nanoseconds>(stop_time_2000_Heap - start_time_2000_Heap);
 	auto start_time_5000_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_5000; i++) {
-		heap5000.InsertHeap(arr_5000_Heap[i]);//Calls add function 5000
+		heap5000.RemoveHeap();//Calls remove function 5000
 	}
 	auto stop_time_5000_Heap = high_resolution_clock::now();
 	auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
 
-	cout << "Priory Queue: Insert" << endl;
+	cout << "Priory Queue: Remove" << endl;
 	cout << "===========" << endl;
 	cout << "Number of Items | Execution Time (ns)" << endl;
 	cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Priory.count() << " ns" << endl;
@@ -135,7 +210,7 @@ int main() {
 	cout << setw(16) << "5000" << "|" << setw(15) << right << duration_5000_Priory.count() << " ns" << endl;
 	cout << endl;
 
-	cout << "Heap: Insert" << endl;
+	cout << "Heap: Remove" << endl;
 	cout << "===========" << endl;
 	cout << "Number of Items | Execution Time (ns)" << endl;
 	cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Heap.count() << " ns" << endl;
