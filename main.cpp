@@ -103,7 +103,7 @@ int main() {
 
 	auto start_time_500_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_500; i++) {
-		heap500.Insert(arr_500_Heap[i]);//Calls add function 500
+		heap500.InsertHeap(arr_500_Heap[i]);//Calls add function 500
 	}
 	auto stop_time_500_Heap = high_resolution_clock::now();
 	auto duration_500_Heap = duration_cast<nanoseconds>(stop_time_500_Heap - start_time_500_Heap);
