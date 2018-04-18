@@ -28,18 +28,19 @@ int main() {
 	int arr_1000[S_1000];
 	int arr_2000[S_2000];
 	int arr_5000[S_5000];
-
+	int dataarr_5000[S_5000];
 	//fill arrays with random numbers
 	for (int i = 0; i < S_5000; ++i) {
 		int temp_500 = static_cast<int>(dist_500(rng));
 		int temp_1000 = static_cast<int>(dist_1000(rng));
 		int temp_2000 = static_cast<int>(dist_2000(rng));
 		int temp_5000 = static_cast<int>(dist_5000(rng));
-
+		int data_5000 = static_cast<int>(dist_5000(rng));
 		if (i < S_500) { arr_500[i] = temp_500; }
 		if (i < S_1000) { arr_1000[i] = temp_1000; }
 		if (i < S_2000) { arr_2000[i] = temp_2000; }
 		if (i < S_5000) { arr_5000[i] = temp_5000; }
+		if (i < S_5000) { dataarr_5000[i] = data_5000; }
 	}
 
 	int arr_500_Priory[S_500];
@@ -61,6 +62,60 @@ int main() {
 	int arr_5000_Heap[S_5000];
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Priory));
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Heap));
+
+
+
+	auto start_time_500_Priory = high_resolution_clock::now();
+	//bubbleSort(arr_500_Priory, S_500); //call function here
+	auto stop_time_500_Priory = high_resolution_clock::now();
+	auto duration_500_Priory = duration_cast<nanoseconds>(stop_time_500_Priory - start_time_500_Priory);
+	auto start_time_1000_Priory = high_resolution_clock::now();
+	//bubbleSort(arr_1000_Priory, S_1000); //call function here
+	auto stop_time_1000_Priory = high_resolution_clock::now();
+	auto duration_1000_Priory = duration_cast<nanoseconds>(stop_time_1000_Priory - start_time_1000_Priory);
+	auto start_time_2000_Priory = high_resolution_clock::now();
+	//bubbleSort(arr_2000_Priory, S_2000); //call function here
+	auto stop_time_2000_Priory = high_resolution_clock::now();
+	auto duration_2000_Priory = duration_cast<nanoseconds>(stop_time_2000_Priory - start_time_2000_Priory);
+	auto start_time_5000_Priory = high_resolution_clock::now();
+	//bubbleSort(arr_5000_Priory, S_5000); //call function here
+	auto stop_time_5000_Priory = high_resolution_clock::now();
+	auto duration_5000_Priory = duration_cast<nanoseconds>(stop_time_5000_Priory - start_time_5000_Priory);
+
+	auto start_time_500_Heap = high_resolution_clock::now();
+	//insertionSort(arr_500_Heap, S_500); //call function here
+	auto stop_time_500_Heap = high_resolution_clock::now();
+	auto duration_500_Heap = duration_cast<nanoseconds>(stop_time_500_Heap - start_time_500_Heap);
+	auto start_time_1000_Heap = high_resolution_clock::now();
+	//insertionSort(arr_1000_Heap, S_1000); //call function here
+	auto stop_time_1000_Heap = high_resolution_clock::now();
+	auto duration_1000_Heap = duration_cast<nanoseconds>(stop_time_1000_Heap - start_time_1000_Heap);
+	auto start_time_2000_Heap = high_resolution_clock::now();
+	//insertionSort(arr_2000_Heap, S_2000); //call function here
+	auto stop_time_2000_Heap = high_resolution_clock::now();
+	auto duration_2000_Heap = duration_cast<nanoseconds>(stop_time_2000_Heap - start_time_2000_Heap);
+	auto start_time_5000_Heap = high_resolution_clock::now();
+	//insertionSort(arr_5000_Heap, S_5000); //call function here
+	auto stop_time_5000_Heap = high_resolution_clock::now();
+	auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
+
+	cout << "Priory Queue" << endl;
+	cout << "===========" << endl;
+	cout << "Number of Items | Execution Time (ns)" << endl;
+	cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Priory.count() << " ns" << endl;
+	cout << setw(16) << "1000" << "|" << setw(15) << right << duration_1000_Priory.count() << " ns" << endl;
+	cout << setw(16) << "2000" << "|" << setw(15) << right << duration_2000_Priory.count() << " ns" << endl;
+	cout << setw(16) << "5000" << "|" << setw(15) << right << duration_5000_Priory.count() << " ns" << endl;
+	cout << endl;
+
+	cout << "Heap" << endl;
+	cout << "===========" << endl;
+	cout << "Number of Items | Execution Time (ns)" << endl;
+	cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Heap.count() << " ns" << endl;
+	cout << setw(16) << "1000" << "|" << setw(15) << right << duration_1000_Heap.count() << " ns" << endl;
+	cout << setw(16) << "2000" << "|" << setw(15) << right << duration_2000_Heap.count() << " ns" << endl;
+	cout << setw(16) << "5000" << "|" << setw(15) << right << duration_5000_Heap.count() << " ns" << endl;
+	cout << endl;
 
 	//menu
 	int input = -1;
