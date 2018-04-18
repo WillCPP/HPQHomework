@@ -4,11 +4,21 @@
 class Heap
 {
 public:
-	Heap();
+	Heap(int size){
+		data = new int[size];
+		heap = 0;
+		array = size;
+	}
+	 }
 	~Heap();
-
-	Node* head;
+	
 private:
+	int *data;
+	int array;
+	int heap;
+	
+	
+	
 
 };
 
@@ -18,4 +28,10 @@ Heap::Heap()
 
 Heap::~Heap()
 {
+	delete[] data;
+}
+
+void Heap::insert() {
+	
+	
 }
