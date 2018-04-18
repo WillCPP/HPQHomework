@@ -106,13 +106,11 @@ int Heap::RemoveHeap() {
 }
 
 void Heap::DisplayHeap() {
-	vector<int>::iterator loc = data.begin();
 	cout << "     Heap     " << endl;
 	cout << "==============" << endl;
-	while (loc != data.end())
+	for(int i = 0; i <heap; i++)
 	{
-		cout << "Data: " << *loc << endl;
-		++loc;
+		cout << "Data: " << data[i]<< endl;
 	}
 	
 } 

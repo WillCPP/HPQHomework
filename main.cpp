@@ -108,15 +108,21 @@ int main() {
 	auto stop_time_500_Heap = high_resolution_clock::now();
 	auto duration_500_Heap = duration_cast<nanoseconds>(stop_time_500_Heap - start_time_500_Heap);
 	auto start_time_1000_Heap = high_resolution_clock::now();
-	//insertionSort(arr_1000_Heap, S_1000); //call function here
+	for (int i = 0; i < S_1000; i++) {
+		heap1000.InsertHeap(arr_1000_Heap[i]);//Calls add function 1000
+	}
 	auto stop_time_1000_Heap = high_resolution_clock::now();
 	auto duration_1000_Heap = duration_cast<nanoseconds>(stop_time_1000_Heap - start_time_1000_Heap);
 	auto start_time_2000_Heap = high_resolution_clock::now();
-	//insertionSort(arr_2000_Heap, S_2000); //call function here
+	for (int i = 0; i < S_2000; i++) {
+		heap2000.InsertHeap(arr_2000_Heap[i]);//Calls add function 2000
+	}
 	auto stop_time_2000_Heap = high_resolution_clock::now();
 	auto duration_2000_Heap = duration_cast<nanoseconds>(stop_time_2000_Heap - start_time_2000_Heap);
 	auto start_time_5000_Heap = high_resolution_clock::now();
-	//insertionSort(arr_5000_Heap, S_5000); //call function here
+	for (int i = 0; i < S_5000; i++) {
+		heap5000.InsertHeap(arr_5000_Heap[i]);//Calls add function 5000
+	}
 	auto stop_time_5000_Heap = high_resolution_clock::now();
 	auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
 
