@@ -39,6 +39,7 @@ private:
 		return 2 * node + 1;
 	}
 
+	
 };
 #endif
 
