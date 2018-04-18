@@ -31,12 +31,17 @@ private:
 	}
 	
 	int right(int node) {
-		return 2 * node + 2;
-	
+		int r = 2 * node + 2;
+		if (r < heap)
+			return r;
+		return -1;
 	}
 	
 	int left(int node) {
-		return 2 * node + 1;
+		int l =  2 * node + 1;
+		if (l < heap)
+			return l;
+		return -1;
 	}
 
 	
@@ -83,10 +88,10 @@ void Heap::HeapifyDown(int node) {
 	if (rightHeap >= 0 && leftHeap >= 0 && data[leftHeap] >= data[rightHeap]) {
 		leftHeap = rightHeap;
 	}
-	if (leftHeap > 0) {
+	if (leftHeap >= 0 && data[node]>data[leftHeap]) {
 		temp = data[node];
-		data[node] = data[rightHeap];
-		data[node] = temp;
+		data[node] = data[leftHeap];
+		data[leftHeap] = temp;
 		HeapifyDown(leftHeap);
 	}
 	
