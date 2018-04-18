@@ -130,7 +130,7 @@ int main() {
 		auto stop_time_5000_Heap = high_resolution_clock::now();
 		auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
 
-		cout << "Priory Queue: Insert" << endl;
+		cout << "Priority Queue: Insert" << endl;
 		cout << "===========" << endl;
 		cout << "Number of Items | Execution Time (ns)" << endl;
 		cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Priory.count() << " ns" << endl;
@@ -201,7 +201,7 @@ int main() {
 	auto stop_time_5000_Heap = high_resolution_clock::now();
 	auto duration_5000_Heap = duration_cast<nanoseconds>(stop_time_5000_Heap - start_time_5000_Heap);
 
-	cout << "Priory Queue: Remove" << endl;
+	cout << "Priority Queue: Remove" << endl;
 	cout << "===========" << endl;
 	cout << "Number of Items | Execution Time (ns)" << endl;
 	cout << setw(16) << "500" << "|" << setw(15) << right << duration_500_Priory.count() << " ns" << endl;
