@@ -96,12 +96,15 @@ void Heap::HeapifyDown(int node) {
 int Heap::RemoveHeap() {
 	if (isEmpty()) {
 		cout <<"Heap is empty" << endl;
+		return -1;
 	}
 	else {
+		int temp = data[0];
 		data[0] = data[heap-1];
 		heap--;
 		if (heap > 0)
 			HeapifyDown(0);
+		return temp;
 	}
 }
 
