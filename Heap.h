@@ -70,11 +70,17 @@ void Heap::Insert(int item) {
 }
 
 void Heap::HeapifyDown(int node) {
-	int leftHeap, rightHeap;
+	int leftHeap, rightHeap, temp;
 	leftHeap = left(node);
 	rightHeap = right(node);
-	if (rightHeap >= heap && leftHeap >= heap) {
-		return;
+	if (rightHeap >= 0 && leftHeap >= 0 && heap[leftHeap] >= heap[rightHeap]) {
+		leftHeap = rightHeap;
+	}
+	if (leftHeap > 0) {
+		temp = heap[node];
+		heap[node] = heap[rightHeap];
+		heap[node] = temp;
+		HeapifyDown(leftHeap);
 	}
 	
 	
@@ -89,4 +95,16 @@ void Heap::Remove() {
 		if (heap > 0)
 			HeapifyDown(0);
 	}
+}
+
+void Heap::Display() {
+	vector<int>:: iterator loc = heap.begin();
+	cout << "     Heap     " << endl;
+	cout << "==============" << endl;
+	while (loc != heap.end())
+	{
+		cout << "Data: " << *loc << endl;
+		++loc;
+	}
+	
 }
