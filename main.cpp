@@ -62,6 +62,7 @@ int main() {
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Priory));
 	copy(begin(arr_5000), end(arr_5000), begin(arr_5000_Heap));
 
+	//menu
 	int input = -1;
 	int input_test = -1;
 	do

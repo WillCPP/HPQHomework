@@ -3,20 +3,15 @@
 class Node
 {
 public:
-	Node();
-	~Node();
+	Node() {}
+	Node(int d, int p) { data = d; priority = p; }
+	~Node() {}
 
-	int priority;
 	int data;
+	int priority;
+	
 	Node* next;
+
 private:
 
 };
-
-Node::Node()
-{
-}
-
-Node::~Node()
-{
-}
