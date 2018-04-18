@@ -1,5 +1,5 @@
-#pragma once
-#include "Node.h"
+#ifndef HEAP_H
+#define HEAP_H
 
 //used for reference: http://www.algolist.net/Data_structures/Binary_heap/Insertion
 class Heap
@@ -14,6 +14,12 @@ public:
 		return (heap == 0);
 	}
 	~Heap();
+	Heap(){};
+	void HeapifyUp(int node);
+	void InsertHeap(int item);
+	void HeapifyDown(int node);
+	int RemoveHeap();
+	void DisplayHeap();
 	
 private:
 	int *data;
@@ -34,6 +40,7 @@ private:
 	}
 
 };
+#endif
 
 
 Heap::~Heap()
@@ -82,7 +89,7 @@ void Heap::HeapifyDown(int node) {
 	
 	
 }
-void Heap::RemoveHeap() {
+int Heap::RemoveHeap() {
 	if (isEmpty()) {
 		cout <<"Heap is empty" << endl;
 	}
@@ -95,7 +102,7 @@ void Heap::RemoveHeap() {
 }
 
 void Heap::DisplayHeap() {
-	vector<int>:: iterator loc = heap.begin();
+	vector<int>::iterator loc = heap.begin();
 	cout << "     Heap     " << endl;
 	cout << "==============" << endl;
 	while (loc != heap.end())
