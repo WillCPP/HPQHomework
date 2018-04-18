@@ -96,10 +96,10 @@ int main() {
 	auto stop_time_5000_Priory = high_resolution_clock::now();
 	auto duration_5000_Priory = duration_cast<nanoseconds>(stop_time_5000_Priory - start_time_5000_Priory);
 
-	Heap heap500 = Heap();
-	Heap heap1000 = Heap();
-	Heap heap2000 = Heap();
-	Heap heap5000 = Heap();
+	Heap heap500 = Heap(500);
+	Heap heap1000 = Heap(1000);
+	Heap heap2000 = Heap(2000);
+	Heap heap5000 = Heap(5000);
 
 	auto start_time_500_Heap = high_resolution_clock::now();
 	for (int i = 0; i < S_500; i++) {
