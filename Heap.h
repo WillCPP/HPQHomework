@@ -49,6 +49,7 @@ Heap::~Heap()
 	delete[] data;
 }
 
+
 void Heap::HeapifyUp(int node) {
 	int heapParent, temp;
 	if (node != 0) {
@@ -74,22 +75,24 @@ void Heap::InsertHeap(int item) {
 	
 }
 
+
 void Heap::HeapifyDown(int node) {
 	int leftHeap, rightHeap, temp;
 	leftHeap = left(node);
 	rightHeap = right(node);
-	if (rightHeap >= 0 && leftHeap >= 0 && heap[leftHeap] >= heap[rightHeap]) {
+	if (rightHeap >= 0 && leftHeap >= 0 && data[leftHeap] >= data[rightHeap]) {
 		leftHeap = rightHeap;
 	}
 	if (leftHeap > 0) {
-		temp = heap[node];
-		heap[node] = heap[rightHeap];
-		heap[node] = temp;
+		temp = data[node];
+		data[node] = data[rightHeap];
+		data[node] = temp;
 		HeapifyDown(leftHeap);
 	}
 	
 	
 }
+
 int Heap::RemoveHeap() {
 	if (isEmpty()) {
 		cout <<"Heap is empty" << endl;
@@ -112,4 +115,4 @@ void Heap::DisplayHeap() {
 		++loc;
 	}
 	
-}
+} 
